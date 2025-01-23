@@ -1,0 +1,27 @@
+public class Solution {
+    public int ClimbStairs(int n)
+{
+    int[] memo = new int[n + 1];
+    Array.Fill(memo, -1);
+
+    return nthClimbStairsUtil(n, memo);
+}
+int nthClimbStairsUtil(int n, int[] memo)
+{
+
+    if (n <= 2)
+    {
+        return n;
+    }
+
+    if (memo[n] != -1)
+    {
+        return memo[n];
+    }
+
+    memo[n] = nthClimbStairsUtil(n - 1, memo)
+                    + nthClimbStairsUtil(n - 2, memo);
+
+    return memo[n];
+}
+}
